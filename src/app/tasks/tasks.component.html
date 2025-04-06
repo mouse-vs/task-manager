@@ -1,0 +1,22 @@
+<app-new-task *ngIf="isAddingTask" [name]="name" (close)="onDialogClose()" [userId]="userId"/> <!--Use brackets which binds to emissions-->
+
+<div id="tasks">
+    <header>
+        <h2 *ngIf="userTasks.length > 0 else fallback">{{ name }}'s Tasks</h2>
+
+        <ng-template #fallback>
+            <h2 id="fallback" style="color: rgb(255, 120, 120);">{{ name }} has no tasks!</h2>
+        </ng-template>
+
+        <menu>
+            <button (click)="onCreateTask()">Add Task</button>
+        </menu>
+    </header>
+
+    <ul>
+        <li *ngFor="let task of userTasks;; let i = index">
+            <app-task [task]="task" />
+        </li>
+    </ul>
+
+</div>
