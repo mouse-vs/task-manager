@@ -1,13 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { NewTaskComponent } from './new-task/new-task.component';
-import { TaskComponent } from './task/task.component';
 import { TaskService } from '../tasks.service';
-import { NgFor, NgIf } from '@angular/common';
-import { User } from '../user.model';
 
 @Component({
   selector: 'app-tasks',
-  imports: [NewTaskComponent, TaskComponent, NgFor, NgIf],
+  standalone: false,
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
 })
